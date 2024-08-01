@@ -5,132 +5,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Ký</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000; /* Black background */
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-image: url('https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:quality(100)/2021_10_10_637695063195034453_6-trang-web-tot-nhat-de-tai-va-doc-truyen-tranh.jpg'); /* Add your background image here */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        .container {
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-            color: #000; /* Text color inside the container */
-        }
-        h2 {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            text-align: left;
-        }
-        input[type="text"], input[type="password"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        p {
-            color: red;
-        }
-        .links {
-            margin-top: 10px;
-        }
-        .links a {
-            text-decoration: none;
-            color: #333;
-            margin-right: 10px;
-        }
-        .home-link {
-            width: 100wh;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 5px;
-            text-decoration: none;
-            color: #fff; /* White color for the "Trang chủ" link */
-            font-size: 24px; /* Larger font size */
-            background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important
-        }
-        .title {
-            font-size: 50px; /* Larger font size */
-            margin-bottom: 20px;
-        }
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.support {
+    position: relative;
+    display: inline-block;
+}
+
+.support a {
+    color: white;
+    text-decoration: none;
+}
+
+.support a:hover {
+    text-decoration: underline;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.support:hover .dropdown-content {
+    display: block;
+}
+.register-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin: 50px auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
     </style>
 </head>
 <body>
-    <a href="index.html" class="home-link">Trang chủ</a>
-    <div class="title">Web Truyện Tranh</div>
-    <div class="container">
-        <h2>Đăng Ký</h2>
-        <form id="registerForm">
-            <label for="username">Tên đăng nhập:</label>
-            <input type="text" id="username" name="username" required><br>
-            <label for="name">Tên:</label>
-            <input type="text" id="name" name="name" required><br>
-            <label for="password">Mật khẩu:</label>
-            <input type="password" id="password" name="password" required><br>
-            <label for="confirm_password">Xác nhận mật khẩu:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required><br>
-            <button type="submit">Đăng Ký</button>
-        </form>
-        <p id="message"></p>
-        <div class="links">
-            <a href="login.html">Đã có tài khoản? Đăng nhập ngay</a>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="./index.html"><img src="./assets/images/logo-trang.png" alt="NetTruyen Logo"></a>
+            </div>
+            <div class="support">
+                <a href="#" id="support-link">Hỗ trợ</a>
+                <div id="support-dropdown" class="dropdown-content">
+                    <a href="#">Liên hệ</a>
+                </div>
+            </div>
         </div>
+    </header>
+    <div class="register-container">
+        <h1>Đăng Ký</h1>
+        <form>
+            <div class="form-group">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Xác nhận mật khẩu</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Đăng Ký</button>
+            </div>
+        </form>
+    
     </div>
 
-    <script>
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const username = document.getElementById('username').value;
-            const name = document.getElementById('name').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm_password').value;
-            const messageElement = document.getElementById('message');
-
-            if (password !== confirmPassword) {
-                messageElement.textContent = 'Mật khẩu xác nhận không khớp.';
-                return;
-            }
-
-            const users = JSON.parse(localStorage.getItem('users')) || {};
-
-            if (users[username]) {
-                messageElement.textContent = 'Tên đăng nhập đã tồn tại. Vui lòng chọn tên đăng nhập khác.';
-            } else {
-                users[username] = { name: name, password: btoa(password) };
-                localStorage.setItem('users', JSON.stringify(users));
-                messageElement.style.color = 'green';
-                messageElement.textContent = 'Đăng ký thành công!';
-            }
-        });
-    </script>
+    <footer>
+        <p>© 2024 Mindx project, All rights reserved</p>
+    </footer>
 </body>
+
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Nhập</title>
+    <title>Quên Mật Khẩu - NetTruyen</title>
     <style>
     body {
     font-family: Arial, sans-serif;
@@ -74,7 +74,7 @@ header {
     display: block;
 }
 
-.login-container {
+.reset-password-container {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
@@ -98,8 +98,7 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="password"] {
+input[type="email"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -140,6 +139,7 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
     </style>
 </head>
 <body>
@@ -156,48 +156,51 @@ footer {
             </div>
         </div>
     </header>
-    <div class="login-container">
-        <h1>Đăng Nhập</h1>
-        <form id="loginForm" action="/Secure/Login.aspx" method="post">
+    <div class="reset-password-container">
+        <h1>Quên Mật Khẩu</h1>
+        <p>Trường hợp không nhận được email để đặt lại mật khẩu, vui lòng liên hệ với chúng tôi</p>
+        <form id="resetPasswordForm" action="/Secure/ResetPassword.aspx" method="post">
             <div class="form-group">
-                <label for="username">Tên đăng nhập</label>
-                <input type="text" id="username" name="username" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="password">Mật khẩu</label>
-                <input type="password" id="password" name="password" required>
+                <button type="submit">Gửi Yêu Cầu</button>
             </div>
             <div class="form-group">
-                <button type="submit">Đăng Nhập</button>
-            </div>
-            <div class="form-group">
-                <a href="./pwrs.html">Quên mật khẩu?</a>
-            </div>
-            <div class="form-group">
-                <a href="./register.html">Chưa có tài khoản?/đăng ký ngay</a>
+                <a href="./login.html">Đăng Nhập</a>
             </div>
         </form>
     </div>
+
     <footer>
         <p>© 2024 Mindx project, All rights reserved</p>
     </footer>
-
+    
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+        document.addEventListener('DOMContentLoaded', function() {
+    var resetPasswordForm = document.getElementById('resetPasswordForm');
+    
+    resetPasswordForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        var email = document.getElementById('email').value;
+        
+        if (!isValidEmail(email)) {
+            alert('Vui lòng nhập đúng định dạng email.');
+            return;
+        }
+        
+        alert('Yêu cầu đã được gửi đến ' + email + '. Vui lòng kiểm tra email để đặt lại mật khẩu.');
+        
+    });
+    
+    function isValidEmail(email) {
 
-    if (username === '' || password === '') {
-        alert('Vui lòng điền đầy đủ thông tin.');
-        event.preventDefault(); 
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
 });
-
-document.getElementById('forgotPasswordLink').addEventListener('click', function(event) {
-    event.preventDefault(); 
-    window.location.href = '#'; 
-});
-
     </script>
 </body>
 </html>
